@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import TodoCard from "../component/TodoCard";
-import {useSelector} from "react-redux";
-import {RootState, useAppDispatch} from "../modules/store";
-import {createTodoItemThunk, deleteTodoItemThunk, getTodoListThunk, updateTodoItemThunk} from "../modules";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../modules/store";
 import {TodoItem} from "../api/todo";
 import {Button} from "react-bootstrap";
 import AddTodoModal from "../component/AddTodoModal";
+import {createTodoItemAsync, deleteTodoItemAsync, getTodoListAsync, updateTodoItemAsync} from "../modules";
 
 function TodoCardContainer() {
 
@@ -16,21 +16,21 @@ function TodoCardContainer() {
     const {loading, data, error} = useSelector(
         (state: RootState) => state.todoList.listState
     )
-    const dispatch = useAppDispatch();
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getTodoListThunk());
+        dispatch(getTodoListAsync.request());
     }, [])
 
     const createTodoItem = (todoItem: TodoItem) => {
-        dispatch(createTodoItemThunk(todoItem));
+        dispatch(createTodoItemAsync.request(todoItem));
         handleClose();
     }
     const updateTodoItemStatus = (todoItem: TodoItem) => {
-        dispatch(updateTodoItemThunk(todoItem));
+        dispatch(updateTodoItemAsync.request(todoItem));
     }
     const deleteTodoItemStatus = (num: number) => {
-        dispatch(deleteTodoItemThunk(num));
+        dispatch(deleteTodoItemAsync.request(num));
     }
 
     return (

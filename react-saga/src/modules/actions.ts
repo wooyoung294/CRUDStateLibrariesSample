@@ -20,7 +20,7 @@ export const createTodoItemAsync = createAsyncAction(
     CREATE_TODO_ITEM,
     CREATE_TODO_ITEM_SUCCESS,
     CREATE_TODO_ITEM_ERROR
-)<undefined,TodoItem[],AxiosError>();
+)<TodoItem,TodoItem[],AxiosError>();
 
 
 export const UPDATE_TODO_ITEM = 'todo/UPDATE_TODO_ITEM'
@@ -31,7 +31,7 @@ export const updateTodoItemAsync = createAsyncAction(
     UPDATE_TODO_ITEM,
     UPDATE_TODO_ITEM_SUCCESS,
     UPDATE_TODO_ITEM_ERROR
-)<undefined,TodoItem[],AxiosError>();
+)<TodoItem,TodoItem[],AxiosError>();
 
 export const DELETE_TODO_ITEM = 'todo/DELETE_TODO_ITEM'
 export const DELETE_TODO_ITEM_SUCCESS = 'todo/DELETE_TODO_ITEM_SUCCESS'
@@ -41,4 +41,4 @@ export const deleteTodoItemAsync = createAsyncAction(
     DELETE_TODO_ITEM,
     DELETE_TODO_ITEM_SUCCESS,
     DELETE_TODO_ITEM_ERROR
-)<undefined,TodoItem[],AxiosError>();
+)<number,TodoItem[],AxiosError>();
