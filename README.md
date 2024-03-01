@@ -1,6 +1,6 @@
 # CRUDStateLibrariesSample
 
-해당 프로젝트는 CRUD(Create, Read, Update, Delete) 작업을 수행하는 API 호출을 여러가지 상태 관리 라이브러리를 이용해 작성해보고 유틸리티 함수를 작성해보는 프로젝트입니다.
+해당 프로젝트는 CRUD(Create, Read, Update, Delete) 작업을 여러가지 상태 관리 라이브러리를 이용해 작성해보고 유틸리티 함수를 작성해보는 프로젝트입니다.
 
 CRUD
 + CREATE : http://todo.wooyu.world/swagger-ui/index.html#/main-controller/createTodoUsingPOST
