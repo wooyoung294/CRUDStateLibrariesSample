@@ -2,9 +2,14 @@
 
 해당 프로젝트는 CRUD(Create, Read, Update, Delete) 작업을 수행하는 API 호출을 여러가지 상태 관리 라이브러리를 이용해 작성해보고 유틸리티 함수를 작성해보는 프로젝트입니다.
 
-
+CRUD의
++ CREATE : http://todo.wooyu.world/swagger-ui/index.html#/main-controller/createTodoUsingPOST
++ READ    : http://todo.wooyu.world/swagger-ui/index.html#/main-controller/getListUsingGET
++ UPDATE : http://todo.wooyu.world/swagger-ui/index.html#/main-controller/updateTodoUsingPATCH
++ DELETE : http://todo.wooyu.world/swagger-ui/index.html#/main-controller/deleteTodoUsingDELETE
+  
 ## STACK
-
+![React](https://img.shields.io/badge/react-444444?style=for-the-badge&logo=react)
 ![typescript](https://img.shields.io/badge/typescript-000000?style=for-the-badge&logo=typescript)
 
 ![redux](https://img.shields.io/badge/redux-000000?style=for-the-badge&logo=redux&logoColor=764ABC)
