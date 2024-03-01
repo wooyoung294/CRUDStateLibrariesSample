@@ -10,7 +10,7 @@ export const getTodoListAsync = createAsyncAction(
     GET_TODO_LIST,
     GET_TODO_LIST_SUCCESS,
     GET_TODO_LIST_ERROR
-)<undefined,TodoItem[],AxiosError>();
+)<void,TodoItem[],AxiosError>();
 
 export const CREATE_TODO_ITEM = 'todo/CREATE_TODO_ITEM'
 export const CREATE_TODO_ITEM_SUCCESS = 'todo/CREATE_TODO_ITEM_SUCCESS'

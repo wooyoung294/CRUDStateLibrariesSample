@@ -8,8 +8,9 @@ import {
 } from "./actions";
 import {createTodoItem, deleteTodoItem, getTodoList, TodoItem, updateTodoItem} from "../api/todo";
 import {call,put,takeEvery} from 'redux-saga/effects'
+import createAsyncSaga from "../lib/createAsnycSaga";
 
-function* getTodoListSaga() {
+function* unUsedUtilityGetTodoListSaga() {
     try {
         const list:TodoItem[] = yield call(getTodoList)
         yield put(getTodoListAsync.success(list))
@@ -18,7 +19,7 @@ function* getTodoListSaga() {
     }
 }
 
-function* createTodoItemSaga(action:ReturnType<typeof createTodoItemAsync.request>) {
+function* unUsedUtilityCreateTodoItemSaga(action:ReturnType<typeof createTodoItemAsync.request>) {
     try {
         const list:TodoItem[] = yield call(createTodoItem,action.payload)
         yield put(createTodoItemAsync.success(list))
@@ -27,7 +28,7 @@ function* createTodoItemSaga(action:ReturnType<typeof createTodoItemAsync.reques
     }
 }
 
-function* updateTodoItemSaga(action:ReturnType<typeof updateTodoItemAsync.request>) {
+function* unUsedUtilityUpdateTodoItemSaga(action:ReturnType<typeof updateTodoItemAsync.request>) {
     try {
         const list:TodoItem[] = yield call(updateTodoItem,action.payload)
         yield put(updateTodoItemAsync.success(list))
@@ -36,7 +37,7 @@ function* updateTodoItemSaga(action:ReturnType<typeof updateTodoItemAsync.reques
     }
 }
 
-function* deleteTodoItemSaga(action:ReturnType<typeof deleteTodoItemAsync.request>) {
+function* unUsedUtilityDeleteTodoItemSaga(action:ReturnType<typeof deleteTodoItemAsync.request>) {
     try {
         const list:TodoItem[] = yield call(deleteTodoItem,action.payload)
         yield put(deleteTodoItemAsync.success(list))
@@ -45,9 +46,14 @@ function* deleteTodoItemSaga(action:ReturnType<typeof deleteTodoItemAsync.reques
     }
 }
 
+const sagas = [
+    { action: GET_TODO_LIST, saga: createAsyncSaga(getTodoListAsync, getTodoList) },
+    { action: CREATE_TODO_ITEM, saga: createAsyncSaga(createTodoItemAsync, createTodoItem) },
+    { action: UPDATE_TODO_ITEM, saga: createAsyncSaga(updateTodoItemAsync, updateTodoItem) },
+    { action: DELETE_TODO_ITEM, saga: createAsyncSaga(deleteTodoItemAsync, deleteTodoItem) },
+];
 export function* todoSaga(){
-    yield takeEvery(GET_TODO_LIST,getTodoListSaga)
-    yield takeEvery(CREATE_TODO_ITEM,createTodoItemSaga)
-    yield takeEvery(UPDATE_TODO_ITEM,updateTodoItemSaga)
-    yield takeEvery(DELETE_TODO_ITEM,deleteTodoItemSaga)
+    for (const { action, saga } of sagas) {
+        yield takeEvery(action, saga);
+    }
 }
