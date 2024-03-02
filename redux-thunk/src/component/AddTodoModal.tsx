@@ -53,7 +53,7 @@ function AddTodoModal({show, handleClose,onCreate}: AddTodoModalProps) {
                            value={title}
                            onChange={onChange}
                     />
-                    <input className="form-control" name={'date'} type="date" value={date} onChange={onChange}/>
+                    <input className="form-control" name={'date'} data-testid="dateInput" type="date" value={date} onChange={onChange}/>
                 </Modal.Header>
                 <Modal.Body>
                     <textarea className="addModal-text"
